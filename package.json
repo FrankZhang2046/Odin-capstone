@@ -1,0 +1,25 @@
+{
+  "name": "odin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankZhang2046/Odin-capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrankZhang2046/Odin-capstone/issues"
+  },
+  "homepage": "https://github.com/FrankZhang2046/Odin-capstone#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
