@@ -42,7 +42,7 @@ class Login extends Component {
           <input type="text" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
           <input type="password" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
         </div>
-        {(window.location.href.includes('loggedIn')) ? (<button style={{height: '48px', backgroundColor:'red', color:'white'}}>Access Repository</button>) : null}
+        {(window.location.href.includes('loggedIn')) ? (<button style={{height: '48px', backgroundColor:'blue', color:'white',marginTop:'20px'}}>Access Repository</button>) : null}
      </div>
     );
   }
