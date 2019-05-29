@@ -1,9 +1,16 @@
 import React from 'react';
-import Main from './components/Main/Main';
+import Login from './components/Login/Login';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+
 
 function App() {
   return (
-   <Main />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/loggedIn" render={(props)=><Login {...props} />}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
