@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ConsumerKey from "../../data/consumerKey";
+import {Link} from 'react-router-dom';
 const domainName = window.location.href;
 
 
@@ -42,7 +43,7 @@ class Login extends Component {
           <input type="text" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
           <input type="password" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
         </div>
-        {(window.location.href.includes('loggedIn')) ? (<button style={{height: '48px', backgroundColor:'blue', color:'white',marginTop:'20px'}}>Access Repository</button>) : null}
+        {(window.location.href.includes('loggedIn')) ? (<Link to='/repository'><button style={{height: '48px', backgroundColor:'blue', color:'white',marginTop:'20px'}}>Access Repository</button></Link>) : null}
      </div>
     );
   }
