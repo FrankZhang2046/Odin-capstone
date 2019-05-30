@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import Article from '../../components/Article/Article';
+import Title from '../../components/Title/Title';
 import titles from '../../../src/components/data/archTitles'
 
 export default class ReadArea extends React.Component{
@@ -18,7 +18,7 @@ export default class ReadArea extends React.Component{
             <div>
                 <div>this is the read area component</div>
                 {this.state.category.map(title=>{
-                    return <Article article={title.title} />
+                    return <Title article={title.title} />
                 })}
             </div>
         )

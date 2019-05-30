@@ -118,13 +118,9 @@ Aluminum Grating Panels as a Mosaic Façade
 Delis Yokohama
 According to the architect, "with 850 panels of aluminum grating that have different sizes and patterns and are combined as mosaic, we tried to translate the humane and unsorted atmosphere of this vibrant district alongside the canal into architectural vocabulary. Normally, multipurpose buildings in big cities are treated unfavorably. However, with the application of the industrial material as the particle, we succeeded in giving a fresh expression of 'noise' to the building."
 
- Delis Yokohama / Kengo Kuma and Associates. Image © Toshihiro Ishibashi
-Delis Yokohama / Kengo Kuma and Associates. Image © Toshihiro Ishibashi
- Delis Yokohama / Kengo Kuma and Associates. Image © Toshihiro Ishibashi
-Delis Yokohama / Kengo Kuma and Associates. Image © Toshihiro Ishibashi
+
 About this author
 
-Cite: AD Editorial Team. "21 Projects Where Kengo Kuma (Re)Uses Materials in Unusual Ways" 30 May 2019. ArchDaily. Accessed 30 May 2019. <https://www.archdaily.com/917657/21-projects-in-which-kengo-kuma-re-uses-materials-in-unusual-ways/> ISSN 0719-8884 ›
+Cite: AD Editorial Team. "21 Projects Where Kengo Kuma (Re)Uses Materials in Unusual Ways" 30 May 2019. ArchDaily. Accessed 30 May 2019. <https://www.archdaily.com/917657/21-projects-in-which-kengo-kuma-re-uses-materials-in-unusual-ways/> ISSN 0719-8884 `
 
-
-`
+export default content;
