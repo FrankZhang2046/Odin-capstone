@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import titles from '../data/archTitles'
 
 class Article extends React.Component{
     state={
@@ -7,14 +8,15 @@ class Article extends React.Component{
     };
 
     componentDidMount(){
-        Axios.post(`http://localhost:8080/feedly/entry`, {id: this.props.entryId})
-            .then(result => this.setState({article: result.data}))
+        // Axios.post(`http://localhost:8080/feedly/entry`, {id: this.props.entryId})
+        //     .then(result => this.setState({article: result.data}))
+        this.setState({article: this.props.article})
     }
     
     render(){
         return(
             <div>
-                {this.state.article.map(item => {return (<h3>{item.title}</h3>)})}
+                <h3>{this.state.article}</h3>
             </div>
         )
     }

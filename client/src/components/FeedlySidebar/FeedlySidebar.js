@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import category from '../data/feedlyCategory';
 
 export default class FeedlySidebar extends React.Component{
     state={
-        categories: [],
+        categories: category,
         showCategories: false
     }
 
@@ -13,16 +14,17 @@ export default class FeedlySidebar extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(`http://localhost:8080/feedly`)
-            .then(result => this.setState({categories: result.data})
-            )
+        // axios.get(`http://localhost:8080/feedly`)
+        //     .then(result => this.setState({categories: result.data})
+        //     )
     }
 
     render(){
         return(
             <div>
                 <h3 onClick={this.toggleCategories}>Feedly</h3> 
-                {this.state.showCategories === true ? this.state.categories.map(category=> {return <Link to={{pathname: `/feedly/${category.label}`, state:{categoryId: category.id}}}><p>{category.label}</p></Link>}) : null}
+                {this.state.categories.map(category=> {return <Link to={{pathname: `/feedly/${category}`
+                , state:{categoryId: category}}}><p>{category}</p></Link>})}
             </div>
         )
     }
