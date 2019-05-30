@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import Article from '../../components/Article/Article';
 
 export default class ReadArea extends React.Component{
     state={
@@ -15,8 +16,8 @@ export default class ReadArea extends React.Component{
         return (
             <div>
                 <div>this is the read area component</div>
-                {this.state.category.map(item=>{
-                    return <div>{item}</div>
+                {this.state.category.map(id=>{
+                    return <Article entryId={id} />
                 })}
             </div>
         )
