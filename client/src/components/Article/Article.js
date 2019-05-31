@@ -1,21 +1,31 @@
 import React from 'react';
-import Axios from 'axios';
+import content from '../data/content';
+import SpeedyReader from 'react-speedy-reader';
+
 
 class Article extends React.Component{
     state={
-        article: []
+        content: content,
+        showContent: true,
+        speedRead: false
     };
 
-    componentDidMount(){
-        Axios.post(`http://localhost:8080/feedly/entry`, {id: this.props.entryId})
-            .then(result => this.setState({article: result.data}))
-    }
-    
+    speedRead=()=>{
+        this.setState({showContent: !this.state.showContent, speedRead: !this.state.speedRead})
+    };
+
     render(){
-        return(
-            <div>
-                {this.state.article.map(item => {return (<h3>{item.title}</h3>)})}
-            </div>
+        return (
+            <>
+              {this.state.showContent===true? <p>{this.state.content}</p>: null}
+              {this.state.speedRead===true? <div className="demo">
+                  <SpeedyReader 
+                    autoPlay
+                    inputText={this.state.content}
+                  />
+              </div> : null}
+              <button onClick={this.speedRead}>Speed Read</button>
+            </>
         )
     }
 }
