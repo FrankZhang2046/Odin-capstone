@@ -1,6 +1,5 @@
 import React from 'react';
 import content from '../data/content';
-import { render } from 'react-dom';
 import SpeedyReader from 'react-speedy-reader';
 
 
@@ -13,7 +12,7 @@ class Article extends React.Component{
 
     speedRead=()=>{
         this.setState({showContent: !this.state.showContent, speedRead: !this.state.speedRead})
-    }
+    };
 
     render(){
         return (
