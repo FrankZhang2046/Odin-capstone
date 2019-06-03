@@ -1,6 +1,8 @@
 const {Router} = require('express');
 const router = Router();
 const axios = require('axios');
+const Article = require('../data/models/article');
+const mongoose = require('mongoose');
 
 const baseUrl = `https://cloud.feedly.com/v3/`;
 
@@ -39,8 +41,17 @@ const getEntry = (req, res) => {
         .then(result => res.send(result.data))
 }
 
+const testDb = (req, res) => {
+    const article = new Article({
+        _id: new mongoose.Types.ObjectId(),
+        name: req.body.name
+    })
+    article.save().then(result => res.send(result));
+}
+
 router.get('/', getCategories);
 router.post('/entry', getEntry);
 router.post('/stream', getCategoryStream);
+router.post('/test', testDb);
 
 module.exports = router;
