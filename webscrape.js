@@ -10,16 +10,13 @@ const url = process.argv[2];
     await page.goto(`${url}`);
     // await page.waitForSelector('#kenneth-modal');
 
-    // const paragraphs = await page.$$eval('p', paras => paras.map(item => item.innerText));
+    const paragraphs = await page.$$eval('p', paras => paras.map(item => item.innerText));
 
-    const code = await page.$$('tbody');
+    fs.writeFile('article.txt', paragraphs, (err) => {
+        if (err) throw err;
+        process.exit();
+    });
 
-    await console.log(code);
-    // fs.writeFile('article.txt', paragraphs, (err) => {
-    //     if (err) throw err;
-    //     process.exit();
-    // });
-
-    // await browser.close();
-    // process.exit(1);
+    await browser.close();
+    process.exit(1);
 })();
