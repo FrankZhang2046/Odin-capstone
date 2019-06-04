@@ -20,11 +20,11 @@ class Login extends Component {
     .then(result => {
         const token = result.data;
         const cleanToken = token.slice(5, token.length);
-        console.log(token, cleanToken);
+        localStorage.setItem('token', cleanToken)
         this.setState({
             token: result.data,
             pocketAuthenticated: true,
-            baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}loggedIn`
+            baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}`
         })
     });
   }
@@ -36,7 +36,7 @@ class Login extends Component {
         <div>
           <h1>Authenticate your Pocket account</h1>
           <button onClick={this.getAccessToken} style={{height:'48px'}}>AUTHENTICATE</button>
-          {this.state.token === '' ? null: <a href={this.state.baseUrl}>Login</a>}
+          <a href={this.state.baseUrl}>Login</a>
         </div>
         <div>
           <h1>Authenticate your Feedly account</h1>
@@ -44,6 +44,7 @@ class Login extends Component {
           <input type="password" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
         </div>
         {(window.location.href.includes('loggedIn')) ? (<Link to='/repository'><button style={{height: '48px', backgroundColor:'blue', color:'white',marginTop:'20px'}}>Access Repository</button></Link>) : null}
+        <button>Get access token</button>
      </div>
     );
   }
