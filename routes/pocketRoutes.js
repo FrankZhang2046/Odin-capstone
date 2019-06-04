@@ -11,6 +11,16 @@ const getAccessToken = (req, res) => {
         .then(result => res.send(result.data))
 }
 
+const writeArticlesToDatabase = (req, res) => {
+    const {key, token} = req.body;
+    axios.get(`https://getpocket.com/v3/get?consumer_key=${key}&access_token=${token}`)
+         .then(result => {
+             res.send(result.data)
+         })
+    // res.send(`key: ${key} token: ${token}`)
+}
+
 router.post('/', getAccessToken);
+router.post('/write', writeArticlesToDatabase);
 
 module.exports = router;
