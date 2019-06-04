@@ -11,7 +11,7 @@ class Login extends Component {
       baseUrl: ''
   }  
 
-  getAccessToken=()=>{
+  getRequestToken=()=>{
     axios
     .post(`http://localhost:8080`, {
       key: ConsumerKey,
@@ -20,7 +20,7 @@ class Login extends Component {
     .then(result => {
         const token = result.data;
         const cleanToken = token.slice(5, token.length);
-        localStorage.setItem('token', cleanToken)
+        localStorage.setItem('token', cleanToken);
         this.setState({
             token: result.data,
             pocketAuthenticated: true,
@@ -29,13 +29,21 @@ class Login extends Component {
     });
   }
 
+  getAccessToken=()=>{
+    axios.post(`http://localhost:8080/pocket`, {
+      key: ConsumerKey,
+      token: localStorage.getItem('token')
+    })
+         .then(result => console.log(result.data))
+  }
+
 
   render() {
     return (
       <div style={{display: 'flex', flexDirection:'column', width:'50%', justifyContent:'center'}}>
         <div>
           <h1>Authenticate your Pocket account</h1>
-          <button onClick={this.getAccessToken} style={{height:'48px'}}>AUTHENTICATE</button>
+          <button onClick={this.getRequestToken} style={{height:'48px'}}>AUTHENTICATE</button>
           <a href={this.state.baseUrl}>Login</a>
         </div>
         <div>
@@ -44,7 +52,7 @@ class Login extends Component {
           <input type="password" name="feedly-account" id="feedly-account" value="frankbusinessmail@gmail.com" style={{width:'200px'}}/>
         </div>
         {(window.location.href.includes('loggedIn')) ? (<Link to='/repository'><button style={{height: '48px', backgroundColor:'blue', color:'white',marginTop:'20px'}}>Access Repository</button></Link>) : null}
-        <button>Get access token</button>
+        <button onClick={this.getAccessToken}>Get access token</button>
      </div>
     );
   }
