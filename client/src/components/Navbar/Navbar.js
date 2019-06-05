@@ -7,7 +7,7 @@ const Navbar =(props)=> {
         <div className="navbar">
            <img src={odinIcon} alt="odin-icon" className="navbar__odin-icon"/>
            <div className="navbar__text-container">
-               <h1 className="navbar__title" >ODIN - Features</h1>
+               <h1 className="navbar__title" >PROJECT - ODIN</h1>
                 <p className="navbar__description">The only Internet articles repository you will ever need</p>
             </div>
         </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import BottomBar from "../../components/BottomBar/BottomBar";
 import FeatureStash from "../../components/Feature-stash/Feature-stash";
 import FeatureSpeed from "../../components/Feature-speed/Feature-speed";
@@ -11,8 +10,6 @@ const Welcome = props => {
   
   return (
     <div className="welcome">
-      <Navbar />
-
       <FeatureStash />
       <FeatureSpeed />
       <FeatureScrape />

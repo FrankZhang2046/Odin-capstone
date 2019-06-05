@@ -1,10 +1,13 @@
 import React from 'react';
 import './BottomBar.scss';
+import {Link} from 'react-router-dom';
 
 const BottomBar = (props) => {
     return(
         <div className="bottomBar">
-            <p className="bottomBar__text">CONNECT MY SERVICES</p>
+            <Link to='/login'>
+                <p className="bottomBar__text">CONNECT MY SERVICES</p>
+            </Link>
         </div>
     )
 }
