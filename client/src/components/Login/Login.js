@@ -76,7 +76,7 @@ class Login extends Component {
           />
           
         </div>
-        {window.location.href.includes("loggedIn") ? (
+       
           <Link to="/repository">
             <button
               style={{
@@ -89,7 +89,6 @@ class Login extends Component {
               Access Repository
             </button>
           </Link>
-        ) : null}
        
       </div>
     );

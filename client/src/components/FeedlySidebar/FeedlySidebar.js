@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import category from '../data/feedlyCategory';
+import './FeedlySidebar.scss';
 
 export default class FeedlySidebar extends React.Component{
     state={

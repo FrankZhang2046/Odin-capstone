@@ -2,8 +2,10 @@
     background:black;
     color: white;
     height: 80px;
+    width: 100%;
     display:flex;
-    position: relative;
+    position: fixed;
+    top: 0;
 
     &__odin-icon{
         position: absolute;

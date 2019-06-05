@@ -1,6 +1,7 @@
 import React from 'react';
 import content from '../data/content';
 import SpeedyReader from 'react-speedy-reader';
+import ArticleBottomBar from '../ArticleBottomBar/ArticleBottomBar';
 
 
 class Article extends React.Component{
@@ -25,6 +26,7 @@ class Article extends React.Component{
                   />
               </div> : null}
               <button onClick={this.speedRead}>Speed Read</button>
+              <ArticleBottomBar />
             </>
         )
     }
