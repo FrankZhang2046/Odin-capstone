@@ -1,0 +1,38 @@
+.navbar{
+    background:black;
+    color: white;
+    height: 80px;
+    display:flex;
+    position: relative;
+
+    &__odin-icon{
+        position: absolute;
+left: 13.29%;
+right: 76.57%;
+top: 18.75%;
+bottom: 17.5%;
+    }
+
+    &__title{
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+
+    }
+
+    &__description{
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 11px;
+    }
+
+    &__text-container{
+        display:flex;
+        flex-direction: column;
+        margin-left: 120px;
+    }
+}

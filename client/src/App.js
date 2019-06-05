@@ -4,13 +4,14 @@ import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Repository from './pages/Repository/Repository';
 import ReadArea from './pages/ReadArea/ReadArea';
 import Article from "./components/Article/Article";
-
+import Welcome from './pages/Welcome/Welcome';
+import './App.scss';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/loggedIn" render={(props)=><Login {...props} />}/>
         <Route exact path="/repository" component={Repository}/>
         <Route exact path="/feedly/:id" render={(props)=><ReadArea {...props} />}/>
