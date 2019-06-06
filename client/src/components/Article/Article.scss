@@ -2,6 +2,28 @@
 
     color: white;
     &__speed-reader{
-        margin-top: 160px;
+        position: fixed;
+        top: 300px;
+        left: 100px;
+        animation: fade 4s;
     }
+
+    &__text--grey{
+        color: rgba(255, 255, 255, 0.2);
+    }
+
+    &__frame{
+        position: fixed; 
+        top: 150px;
+        animation: fade 2s;
+    }
+}
+
+@keyframes fade{
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity:100%;
+      }
 }

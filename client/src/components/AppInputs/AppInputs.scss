@@ -1,0 +1,36 @@
+.wpm-form{
+    background: rgba(0, 0, 0, 0.53);
+    border-radius: 5px;
+    color:white;
+    width: 230px;
+    left: 80px;
+    padding-left: 80px;
+    height: 36px;
+    border: none;
+    position: fixed;
+    top: 540px;
+    box-sizing: border-box;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    &__label{
+        position: fixed;
+        bottom: 165px;
+        left: 240px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+
+        color: rgba(255, 191, 0, 0.65);
+    }
+}
+
