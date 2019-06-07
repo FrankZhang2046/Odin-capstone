@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import ConsumerKey from "../../data/consumerKey";
 import { Link } from "react-router-dom";
+import PocketLogin from "../PocketLogin/PocketLogin";
+import FeedlyLogin from "../FeedlyLogin/FeedlyLogin";
+// import './Login.scss';
+
 const domainName = window.location.href;
 
 class Login extends Component {
@@ -42,14 +46,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "50%",
-          justifyContent: "center"
-        }}
-      >
+      <div>
         <div>
           <h1>Authenticate your Pocket account</h1>
           <button onClick={this.getRequestToken} style={{ height: "48px" }}>
@@ -89,7 +86,8 @@ class Login extends Component {
               Access Repository
             </button>
           </Link>
-       
+          <PocketLogin />
+          <FeedlyLogin />
       </div>
     );
   }
