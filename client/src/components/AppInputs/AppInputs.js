@@ -16,12 +16,12 @@ const AppInputs = ({playing, handleChangeWPM, wordsPerDisplay, handleChangeWords
         </div>
         <div className="app-inputs__group">
 
-            <label htmlFor="words-per-display-input">
+            {/* <label htmlFor="words-per-display-input">
                 <input type="range" min="1" max="10" className="hide" id="words-per-display-input"
                        value={wordsPerDisplay}
                        disabled={playing}
                        onChange={handleChangeWordsPerDisplay}/>
-            </label>
+            </label> */}
         </div>
     </div>
 

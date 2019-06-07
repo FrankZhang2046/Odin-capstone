@@ -18,7 +18,7 @@ const writeArticlesToDatabase = (req, res) => {
          .then(result => {
                 const myList = result.data.list;
                 const myKeys = Object.keys(result.data.list);
-                console.log(myKeys);
+                console.log(myList);
                 for (let i =0; i<myKeys.length; i++){
                     const item = myList[`${myKeys[i]}`];
                     const article = new PocketArticle({
@@ -54,7 +54,12 @@ const writeArticlesToDatabase = (req, res) => {
     // res.send(`key: ${key} token: ${token}`)
 }
 
+const emptyDb=(req,res)=>{
+    PocketArticle.remove().exec().then(res.send(`all articles emptied`))
+}
+
 router.post('/', getAccessToken);
 router.post('/write', writeArticlesToDatabase);
+router.delete('/', emptyDb);
 
 module.exports = router;
