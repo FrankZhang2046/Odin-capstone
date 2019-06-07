@@ -1,0 +1,38 @@
+.loginItem{
+    &__button{
+        background: #C4C4C4;
+        border-radius: 5px;
+
+        width: 88px;
+        height: 21px; 
+
+
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 9px;
+        line-height: 10px;
+
+        color: #000000;
+    }
+
+    &__pocket{
+    margin-top: calc(80px + 45px);
+    margin-left: 35px;
+
+    &--text{
+        position: absolute;
+        left: 37.44%;
+        right: 7.73%;
+        top: 115px;
+        bottom: 27.37%;
+
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: #FFFFFF;
+    }
+}}

@@ -14,7 +14,7 @@ class Login extends Component {
     axios
       .post(`http://localhost:8080`, {
         key: ConsumerKey,
-        uri: `${domainName}/login`
+        uri: `${domainName}`
       })
       .then(result => {
         const token = result.data;
@@ -23,7 +23,7 @@ class Login extends Component {
         this.setState({
           token: result.data,
           pocketAuthenticated: true,
-          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}/login`
+          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}login`
         });
       });
   };
