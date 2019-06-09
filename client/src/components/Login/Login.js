@@ -14,6 +14,10 @@ class Login extends Component {
     baseUrl: ""
   };
 
+  componentDidMount(){
+    
+  }
+
   getRequestToken = () => {
     axios
       .post(`http://localhost:8080`, {
@@ -29,6 +33,7 @@ class Login extends Component {
           pocketAuthenticated: true,
           baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}login`
         });
+        console.log(localStorage.getItem('token'))
       });
   };
 
@@ -86,7 +91,7 @@ class Login extends Component {
               Access Repository
             </button>
           </Link>
-          <PocketLogin />
+          <PocketLogin link={this.state.baseUrl} getRequestToken={this.getRequestToken} getAccessToken={this.getAccessToken}/>
           <FeedlyLogin />
       </div>
     );
