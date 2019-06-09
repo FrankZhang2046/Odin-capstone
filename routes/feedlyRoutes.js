@@ -3,6 +3,7 @@ const router = Router();
 const axios = require('axios');
 const Article = require('../data/models/article');
 const Category = require('../data/models/feedlyCategory');
+const StreamId = require('../data/models/feedlyStreamId');
 const mongoose = require('mongoose');
 
 let categoryArr = [];
@@ -10,15 +11,29 @@ let categoryArr = [];
 const baseUrl = `https://cloud.feedly.com/v3/`;
 
 const getCategoryStream = (req, res) => {
-    axios({
-        method: 'GET',
-        url: `${baseUrl}streams/ids?`,
-        params: {streamId: req.body.id},
-        headers: {
-            Authorization: 'OAuth AyCIEtdYucbSKlppncbpVe8JlyoJ7M2C-MTuhXXekzStZGkrDRScscSpYkMoeVvSvourGh5U4nKW-h8LQToH1zeNVq8yV5osg00NP-KaD6noCwhCXATltOtTz4gVdW-tccjxP0AwppU8nL3vmjGxlYkVDoX7lydlpZMWniqJf2T_58zL8z_n6j2Q8jVrTlYLCyHddOg3MfMGxi1vvUvF7NnKhXQ2cGwNfdWOciXH5Qo4tYyc2CoS3H4:feedlydev'
-        }
+    Category.find().limit().exec().then(categories => {
+        categories.map(category => {
+            axios({
+            method: 'GET',
+            url: `${baseUrl}streams/ids?`,
+            params: {streamId: category.id},
+            headers: {
+                Authorization: 'OAuth AyCIEtdYucbSKlppncbpVe8JlyoJ7M2C-MTuhXXekzStZGkrDRScscSpYkMoeVvSvourGh5U4nKW-h8LQToH1zeNVq8yV5osg00NP-KaD6noCwhCXATltOtTz4gVdW-tccjxP0AwppU8nL3vmjGxlYkVDoX7lydlpZMWniqJf2T_58zL8z_n6j2Q8jVrTlYLCyHddOg3MfMGxi1vvUvF7NnKhXQ2cGwNfdWOciXH5Qo4tYyc2CoS3H4:feedlydev'
+            }
+        })
+            .then(result => {
+                streamId = new StreamId({
+                    label: category.label,
+                    streamId: category.id,
+                    entry_ids: result.data.ids
+                })
+
+                streamId.save();
+            })
+        })
+        res.send(`job's done.`)
     })
-        .then(result => res.send(result.data))
+    
 }
 
 const getEntry = (req, res) => {
@@ -31,14 +46,6 @@ const getEntry = (req, res) => {
         }
     })
         .then(result => res.send(result.data))
-}
-
-const testDb = (req, res) => {
-    const article = new Article({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name
-    })
-    article.save().then(result => res.send(result));
 }
 
 const writeCategory = (req, res) => {
@@ -68,7 +75,6 @@ const emptyCategory=(req,res)=>{
 router.post('/entry', getEntry);
 router.post('/category', writeCategory);
 router.post('/stream', getCategoryStream);
-router.post('/test', testDb);
 router.delete('/category', emptyCategory);
 
 module.exports = router;
