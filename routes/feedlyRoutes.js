@@ -9,17 +9,6 @@ let categoryArr = [];
 
 const baseUrl = `https://cloud.feedly.com/v3/`;
 
-const getCategories = (req, res) => {
-    axios({
-        method: 'GET',
-        url: `${baseUrl}categories`,
-        headers: {
-            Authorization: 'OAuth AyCIEtdYucbSKlppncbpVe8JlyoJ7M2C-MTuhXXekzStZGkrDRScscSpYkMoeVvSvourGh5U4nKW-h8LQToH1zeNVq8yV5osg00NP-KaD6noCwhCXATltOtTz4gVdW-tccjxP0AwppU8nL3vmjGxlYkVDoX7lydlpZMWniqJf2T_58zL8z_n6j2Q8jVrTlYLCyHddOg3MfMGxi1vvUvF7NnKhXQ2cGwNfdWOciXH5Qo4tYyc2CoS3H4:feedlydev'
-        }
-    })
-        .then(result => res.send(result.data))
-}
-
 const getCategoryStream = (req, res) => {
     axios({
         method: 'GET',
@@ -72,22 +61,11 @@ const writeCategory = (req, res) => {
         })
 }
 
-const getCategory = (req, res) => {
-    Category.find()
-            .exec()
-            .then(doc => {
-                            console.log(doc);
-                            res.send(doc);                    
-})
-}
-
 const emptyCategory=(req,res)=>{
     Category.remove().exec().then(res.send(`all categories emptied`))
 }
 
-router.get('/', getCategories);
 router.post('/entry', getEntry);
-router.get('/category', getCategory);
 router.post('/category', writeCategory);
 router.post('/stream', getCategoryStream);
 router.post('/test', testDb);
