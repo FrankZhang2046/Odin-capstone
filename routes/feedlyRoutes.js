@@ -123,8 +123,8 @@ const emptyEntry = (req, res) => {
 // router.post("/entry", writeEntry);
 router.post("/category", writeCategory);
 router.post("/stream", getCategoryStream);
-router.delete("/category", emptyCategory);
+// router.delete("/category", emptyCategory);
 router.get("/entry", getEntry)
-router.delete("/entry", emptyEntry)
+// router.delete("/entry", emptyEntry)
 
 module.exports = router;
