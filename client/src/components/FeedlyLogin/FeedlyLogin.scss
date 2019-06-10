@@ -1,0 +1,54 @@
+@import '../../styles/scss/master.scss';
+
+.feedlyLogin{
+    border-top: 0.5px solid grey;
+    border-bottom: 0.5px solid grey;
+    display:flex;
+    width: 100%;
+
+    &__icon{
+        margin-left: 34px;
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+
+    &__control{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 227px;
+        height: 83px;
+        margin-left: 21px;
+        margin-top: 45px;
+
+
+        &--cta{
+            margin: 0px;
+            width: 100%;
+            font-family: Arial;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+    
+            color:rgba(255, 191, 0, 0.65);
+        }
+
+        &-button{
+            display: flex;
+            justify-content: space-between;
+
+            &-authen{
+                @include loginButton;
+                background:rgba(255, 191, 0, 0.65);
+             }
+             &-get-articles{
+                @include loginButton;
+                margin-right: 40px;
+                background:rgba(255, 191, 0, 0.65);
+             }
+        }
+        
+    }
+}
+

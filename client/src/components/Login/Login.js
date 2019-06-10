@@ -4,6 +4,7 @@ import ConsumerKey from "../../data/consumerKey";
 import { Link } from "react-router-dom";
 import PocketLogin from "../PocketLogin/PocketLogin";
 import FeedlyLogin from "../FeedlyLogin/FeedlyLogin";
+import RepositoryButton from "../RepositoryButton/RepositoryButton";
 // import './Login.scss';
 
 const domainName = window.location.href;
@@ -31,7 +32,7 @@ class Login extends Component {
         this.setState({
           token: result.data,
           pocketAuthenticated: true,
-          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=${domainName}login`
+          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=http://localhost:3000/login`
         });
         console.log(localStorage.getItem('token'))
       });
@@ -52,50 +53,12 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>Authenticate your Pocket account</h1>
-          <button onClick={this.getRequestToken} style={{ height: "48px" }}>
-            AUTHENTICATE
-          </button>
-          <a href={this.state.baseUrl}>Login</a>
-          <button onClick={this.getAccessToken}>Get access token</button>
-        </div>
-        <div>
-          <h1>Authenticate your Feedly account</h1>
-          <input
-            type="text"
-            name="feedly-account"
-            id="feedly-account"
-            value="frankbusinessmail@gmail.com"
-            style={{ width: "200px" }}
-          />
-          <input
-            type="password"
-            name="feedly-account"
-            id="feedly-account"
-            value="frankbusinessmail@gmail.com"
-            style={{ width: "200px" }}
-          />
-          
-        </div>
-       
-          <Link to="/repository">
-            <button
-              style={{
-                height: "48px",
-                backgroundColor: "blue",
-                color: "white",
-                marginTop: "20px"
-              }}
-            >
-              Access Repository
-            </button>
-          </Link>
           <PocketLogin link={this.state.baseUrl} getRequestToken={this.getRequestToken} getAccessToken={this.getAccessToken}
           myKey={localStorage.getItem('myKey')}
           token={localStorage.getItem('accessToken')}
           />
           <FeedlyLogin />
+          <RepositoryButton />
       </div>
     );
   }
