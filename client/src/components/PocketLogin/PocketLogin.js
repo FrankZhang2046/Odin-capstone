@@ -8,16 +8,33 @@ export default class PocketLogin extends React.Component {
     this.props.getRequestToken();
   }
 
-  writeArticle=()=> {
+  getArticle=()=> {
     this.props.getAccessToken();
-    console.log(this.props);
-    axios.post(`http://localhost:8080/pocket/write`, {
-      key: this.props.myKey,
-      token: this.props.token
+    const {key, token} = this.props;
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/pocket/get',
+      data: {
+        token: localStorage.getItem('accessToken')
+      }
+    }).then(result => {
+      if(result.data.length===0){
+        axios.post(`http://localhost:8080/pocket/write`, {
+        key: this.props.key,
+        token: this.props.token
+      })
+        .then(result=> console.log(result))
+        console.log(`you have no article!`);
+      }
+        else {console.log(result.data)}
     })
-      .then(result=> console.log(result))
   }
   
+  read=()=>{
+    
+
+  }
+
   render() {
     return (
       <div className="pocketLogin">
@@ -32,7 +49,7 @@ export default class PocketLogin extends React.Component {
             AUTHENTICATE
             </button>
             </a>
-            <button onClick={()=>this.writeArticle()} className="pocketLogin__control-button-get-articles">
+            <button onClick={()=>this.getArticle()} className="pocketLogin__control-button-get-articles">
               GET ARTICLES
             </button>
           </div>

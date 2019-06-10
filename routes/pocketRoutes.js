@@ -66,6 +66,6 @@ const emptyDb=(req,res)=>{
 router.post('/', getAccessToken);
 router.post('/write', writeArticlesToDatabase);
 router.delete('/', emptyDb);
-router.get('/get', retrieveArticles);
+router.post('/get', retrieveArticles);
 
 module.exports = router;

@@ -120,7 +120,7 @@ const emptyEntry = (req, res) => {
                  .then(res.send(`all feedly articles scraped`))
 }
 
-router.post("/entry", writeEntry);
+// router.post("/entry", writeEntry);
 router.post("/category", writeCategory);
 router.post("/stream", getCategoryStream);
 router.delete("/category", emptyCategory);
