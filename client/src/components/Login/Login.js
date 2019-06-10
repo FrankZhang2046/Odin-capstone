@@ -15,7 +15,7 @@ class Login extends Component {
   };
 
   componentDidMount(){
-    
+    localStorage.setItem('myKey', ConsumerKey);
   }
 
   getRequestToken = () => {
@@ -91,7 +91,10 @@ class Login extends Component {
               Access Repository
             </button>
           </Link>
-          <PocketLogin link={this.state.baseUrl} getRequestToken={this.getRequestToken} getAccessToken={this.getAccessToken}/>
+          <PocketLogin link={this.state.baseUrl} getRequestToken={this.getRequestToken} getAccessToken={this.getAccessToken}
+          myKey={localStorage.getItem('myKey')}
+          token={localStorage.getItem('accessToken')}
+          />
           <FeedlyLogin />
       </div>
     );

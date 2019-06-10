@@ -1,5 +1,6 @@
 import React from "react";
 import "./PocketLogin.scss";
+import axios from 'axios';
 import pocketIcon from "../../assets/pocket-icon-large.svg";
 
 export default class PocketLogin extends React.Component {
@@ -9,6 +10,12 @@ export default class PocketLogin extends React.Component {
 
   writeArticle=()=> {
     this.props.getAccessToken();
+    console.log(this.props);
+    axios.post(`http://localhost:8080/pocket/write`, {
+      key: this.props.myKey,
+      token: this.props.token
+    })
+      .then(result=> console.log(result))
   }
   
   render() {

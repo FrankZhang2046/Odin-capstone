@@ -14,7 +14,7 @@ const getAccessToken = (req, res) => {
 
 const writeArticlesToDatabase = (req, res) => {
     const {key, token} = req.body;
-    axios.get(`https://getpocket.com/v3/get?consumer_key=${key}&access_token=${token}&count=3`)
+    axios.get(`https://getpocket.com/v3/get?consumer_key=${key}&access_token=${token}&count=20`)
          .then(result => {
                 const myList = result.data.list;
                 const myKeys = Object.keys(result.data.list);
@@ -54,6 +54,11 @@ const writeArticlesToDatabase = (req, res) => {
     // res.send(`key: ${key} token: ${token}`)
 }
 
+const retrieveArticles = (req, res) => {
+    const {token} = req.body;
+    PocketArticle.find({"user_id": token}).exec().then(result => res.send(result))
+}
+
 const emptyDb=(req,res)=>{
     PocketArticle.remove().exec().then(res.send(`all articles emptied`))
 }
@@ -61,5 +66,6 @@ const emptyDb=(req,res)=>{
 router.post('/', getAccessToken);
 router.post('/write', writeArticlesToDatabase);
 router.delete('/', emptyDb);
+router.get('/get', retrieveArticles);
 
 module.exports = router;
