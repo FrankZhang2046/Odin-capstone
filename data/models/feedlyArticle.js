@@ -11,7 +11,7 @@ const feedlyArticleSchema = mongoose.Schema({
     published: Number,
     origin: {type: Object, default: null},
     unread: {type: Boolean, default: null},
-    categories: Array,
+    categories: String,
     commonTopics: Array,
 
 });

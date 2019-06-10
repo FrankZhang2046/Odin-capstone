@@ -73,7 +73,7 @@ const writeEntry = (req, res) => {
             published: firstEntry.published,
             origin: firstEntry.origin,
             unread: firstEntry.unread,
-            categories: firstEntry.categories,
+            categories: firstEntry.categories[0].label,
             commonTopics: firstEntry.commonTopics
           });
           feedlyArticle.save();
@@ -111,7 +111,19 @@ const emptyCategory = (req, res) => {
 };
 
 const getEntry = (req, res) => {
-    res.send(req.body.category)
+    const categoriesArr = [];
+    const tallyArr = [];
+
+    // Category.find().exec().then(categories => {
+    //     categories.map(category => categoriesArr.push(category.label))
+    //     return(categoriesArr);
+    // }).then(result => {
+    //     result.map(
+    //         category => {
+    //             FeedlyArticle.find({categories[0].label})
+    //         }
+    //     )
+    // })
 }
 
 const emptyEntry = (req, res) => {
