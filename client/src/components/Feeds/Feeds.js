@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedlySidebar from '../FeedlySidebar/FeedlySidebar';
+import FeedlySidebar from '../Sidebar/Sidebar';
 
 export default class Feeds extends React.Component{
     render(){

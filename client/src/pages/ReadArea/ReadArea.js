@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Title from '../../components/Title/Title';
 import titles from '../../../src/components/data/archTitles'
+import RepositoryBottomBar from '../../components/RepositoryBottomBar/RepositoryBottomBar';
 
 export default class ReadArea extends React.Component{
     state={
@@ -20,6 +21,7 @@ export default class ReadArea extends React.Component{
                 {this.state.category.map(title=>{
                     return <Title article={title.title} />
                 })}
+                <RepositoryBottomBar />
             </div>
         )
     }

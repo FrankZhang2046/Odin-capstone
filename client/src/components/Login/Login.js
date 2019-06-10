@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PocketLogin from "../PocketLogin/PocketLogin";
 import FeedlyLogin from "../FeedlyLogin/FeedlyLogin";
 import RepositoryButton from "../RepositoryButton/RepositoryButton";
-// import './Login.scss';
+import './Login.scss';
 
 const domainName = window.location.href;
 
@@ -52,7 +52,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
           <PocketLogin link={this.state.baseUrl} getRequestToken={this.getRequestToken} getAccessToken={this.getAccessToken}
           myKey={localStorage.getItem('myKey')}
           token={localStorage.getItem('accessToken')}
