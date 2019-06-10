@@ -133,7 +133,7 @@ const emptyEntry = (req, res) => {
 }
 
 // router.post("/entry", writeEntry);
-router.post("/category", writeCategory);
+// router.post("/category", writeCategory);
 router.post("/stream", getCategoryStream);
 // router.delete("/category", emptyCategory);
 router.get("/entry", getEntry)
