@@ -24,7 +24,7 @@ const FeedlyCard = props => {
               ? `${title.toUpperCase().substr(0, 27)}...`
               : "CLICK TO VIEW FULL ARTICLE"}
           </h4>
-          <p className="feedlyCard__textContainer--paragraph">{console.log(props.content || 'this article do not have content')}</p>
+          <p className="feedlyCard__textContainer--paragraph"></p>
         </div>
       </div>
     </Link>

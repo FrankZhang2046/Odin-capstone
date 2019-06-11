@@ -33,7 +33,7 @@ export default class FeedlyCardContainer extends Component{
                     return <Card article={article}/>
                 })} */}
                 {this.state.articles.map(article => {
-                    return <FeedlyCard article = {article} content={article.content.content} />
+                    return <FeedlyCard article = {article} />
                 })}
             </div>
         )
