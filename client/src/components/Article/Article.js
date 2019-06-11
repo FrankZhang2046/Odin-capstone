@@ -12,6 +12,7 @@ import AppInputs from "../AppInputs/AppInputs";
 import separateWords from "../../actions/separate-words";
 
 import "./Article.scss";
+import Axios from "axios";
 
 class Article extends React.Component {
   constructor(props) {
@@ -30,13 +31,26 @@ class Article extends React.Component {
       separatedWords: [],
       playing: false,
       wpm: 240,
-      content: content,
+      content: '',
       showContent: true,
       speedRead: false
     };
   }
+
+  contentContainer = React.createRef();
+
   componentDidMount() {
     this.updateWordSettings();
+
+    // Axios.post('http://localhost:8080/pocket/scrape', {
+    //   key: localStorage.getItem('myKey'),
+    //   url: this.props.location.state.url
+    // })
+    //      .then(result => {this.setState({content:result.data.article.replace(/\\/g, '')})})
+
+    Axios.get('http://localhost:8080/pocket/fake')
+         .then(result => this.contentContainer.current.innerHTML = result.data.article.replace(/\\/g,''))
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -124,9 +138,9 @@ class Article extends React.Component {
   render() {
     return (
       <div className="article">
-        <p className={this.state.speedRead ? "article__text--grey" : null}>
+        <div ref={this.contentContainer} className={this.state.speedRead ? "article__textContainer--grey" : "article__textContainer"}>
           {this.state.content}
-        </p>
+        </div>
         {this.state.speedRead === true ? (
           <div>
             <img

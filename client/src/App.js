@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/login" render={(props)=><Login {...props} />}/>
         <Route exact path="/repository" component={Repository}/>
         <Route exact path="/feedly/:id" render={(props)=><ReadArea {...props} />}/>
-        <Route exact path="/feedly/article/read" render={(props)=><Article {...props} />} />
+        <Route exact path="/reading-area" render={(props)=><Article {...props} />} />
       </Switch>
     </BrowserRouter>
   );
