@@ -132,11 +132,24 @@ const emptyEntry = (req, res) => {
                  .then(res.send(`all feedly articles scraped`))
 }
 
+const getCategories = (req, res) => {
+  Category.find().exec().then(
+    categories => {
+      const labels = [];
+      categories.map(
+        category => {labels.push(category.label)}
+      )
+      res.send(labels);
+    }
+  )
+}
+
 // router.post("/entry", writeEntry);
 // router.post("/category", writeCategory);
 router.post("/stream", getCategoryStream);
 // router.delete("/category", emptyCategory);
-router.get("/entry", getEntry)
+router.get("/entry", getEntry);
+router.get("/category",getCategories);
 // router.delete("/entry", emptyEntry)
 
 module.exports = router;

@@ -2,6 +2,7 @@
 
 .pocketNavTab{
     display: flex;
+    height: 39px;
 
     &__icon{
         margin-top: 14px;
@@ -24,5 +25,10 @@
         font-weight: normal;
         font-size: 12px;
         line-height: 14px;
+    }
+
+    &--toggled{
+        background: rgba(196, 196, 196, 0.42);
+        height:39px;
     }
 }

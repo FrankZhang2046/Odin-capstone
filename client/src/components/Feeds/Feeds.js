@@ -1,11 +1,13 @@
 import React from 'react';
-import FeedlySidebar from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
+import CardContainer from '../CardContainer/CardContainer';
 
 export default class Feeds extends React.Component{
     render(){
         return (
             <div>
-                <FeedlySidebar />
+                <Sidebar />
+                <CardContainer />
             </div>
         )
     }

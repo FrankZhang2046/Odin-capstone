@@ -10,7 +10,9 @@ export default class PocketLogin extends React.Component {
 
   getArticle=()=> {
     this.props.getAccessToken();
-    const {key, token} = this.props;
+    const {myKey, token} = this.props;
+    
+
     axios({
       method: 'post',
       url: 'http://localhost:8080/pocket/get',
@@ -19,14 +21,16 @@ export default class PocketLogin extends React.Component {
       }
     }).then(result => {
       if(result.data.length===0){
+        alert(`got no articles in db, performing article scraping`)
         axios.post(`http://localhost:8080/pocket/write`, {
-        key: this.props.key,
-        token: this.props.token
+        key: myKey,
+        token: token
       })
         .then(result=> console.log(result))
-        console.log(`you have no article!`);
       }
-        else {console.log(result.data)}
+        else {
+          alert(`we got your pocket articles`)
+          console.log(result.data)}
     })
   }
   

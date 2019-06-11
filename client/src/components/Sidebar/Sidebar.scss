@@ -9,4 +9,23 @@ a{
     background:#3D3D3D;
     width: 125px;
     height: 616px;
+
+    &__feedly{
+    }
+
+    &__category{
+        margin-left: 20px;
+        margin-top: 10px;
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 11px;
+
+        color: rgba(255,255,255,0.75);
+    }
+}
+
+.active{
+    background: rgba(196, 196, 196, 0.42);
 }
