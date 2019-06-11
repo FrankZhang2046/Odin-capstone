@@ -23,10 +23,10 @@ export default class Sidebar extends React.Component{
     render(){
         return(
             <div className="sidebar" >
-                <PocketNavTab className="sidebar__pocket"/>
+                <Link to={'/repository/pocket'}><PocketNavTab className="sidebar__pocket"/></Link>
                 <FeedlyNavTab className="sidebar__feedly" toggleCategories={this.toggleCategories}/>
                 {this.state.showCategories ? this.state.categories.map((category, index) => {
-                    return <div className="sidebar__category">{category.toUpperCase()}</div>
+                    return <Link to={`/repository/feedly/${category}`}><div className="sidebar__category">{category.toUpperCase()}</div></Link>
                 }) : null}
             </div>
         )

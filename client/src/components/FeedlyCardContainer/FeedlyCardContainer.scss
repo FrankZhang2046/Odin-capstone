@@ -1,0 +1,12 @@
+.feedlyCardContainer{
+    display:flex;
+    flex-flow: wrap;
+    position: absolute;
+    width: 289px;
+    height: 606px;
+    left: 125px;
+    top: 80px;
+
+    overflow-y:scroll;
+    overflow-x:hidden;
+}

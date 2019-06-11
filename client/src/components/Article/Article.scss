@@ -1,6 +1,7 @@
 .article{
 
     color: white;
+
     &__speed-reader{
         position: fixed;
         top: 300px;
@@ -20,10 +21,23 @@
       overflow-y: scroll;
       overflow-x: hidden;
 
+      img{
+        width:100%;
+        object-fit: cover;
+      }
+
       &--grey{
+
+        background: #3D3D3D;
         color: rgba(255, 255, 255, 0.2);
         a{
           color: rgba(255, 255, 255, 0.2);
+        }
+        img{
+          display: none;
+          width:100%;
+        object-fit: cover;
+        background: rgba(0,255,255, 0.1);
         }
     }
     }
@@ -44,11 +58,4 @@
       100% {
         opacity:100%;
       }
-}
-
-.RIL_IMG{
-  img{
-    width:100%;
-  object-fit: cover;
-  }
 }

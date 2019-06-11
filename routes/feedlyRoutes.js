@@ -144,6 +144,11 @@ const getCategories = (req, res) => {
   )
 }
 
+const retrieveArticles = (req, res) => {
+  const {category} = req.body;
+  FeedlyArticle.find({"categories": category}).exec().then(result => res.send(result))
+}
+
 // router.post("/entry", writeEntry);
 // router.post("/category", writeCategory);
 router.post("/stream", getCategoryStream);
@@ -151,5 +156,6 @@ router.post("/stream", getCategoryStream);
 router.get("/entry", getEntry);
 router.get("/category",getCategories);
 // router.delete("/entry", emptyEntry)
+router.post("/get",retrieveArticles);
 
 module.exports = router;

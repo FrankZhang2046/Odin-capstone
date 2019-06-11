@@ -1,5 +1,4 @@
 import React from "react";
-import content from "../data/content";
 import ArticleBottomBar from "../ArticleBottomBar/ArticleBottomBar";
 
 import gungnirFrame from "../../assets/gungnir-frame.svg";
@@ -14,17 +13,19 @@ import separateWords from "../../actions/separate-words";
 import "./Article.scss";
 import Axios from "axios";
 
+import htmlToText from 'html-to-text';
+
 class Article extends React.Component {
   constructor(props) {
     super(props);
 
-    this.readingMaterial = content;
+    this.readingMaterial = 'content';
 
     this.timer = false;
 
     // Default values
     this.state = {
-      readingMaterial: this.readingMaterial,
+      readingMaterial: '',
       currentDisplayedText: "",
       currentDisplayedIndex: 0,
       wordsPerDisplay: 1,
@@ -40,16 +41,23 @@ class Article extends React.Component {
   contentContainer = React.createRef();
 
   componentDidMount() {
-    this.updateWordSettings();
 
-    // Axios.post('http://localhost:8080/pocket/scrape', {
-    //   key: localStorage.getItem('myKey'),
-    //   url: this.props.location.state.url
-    // })
-    //      .then(result => {this.setState({content:result.data.article.replace(/\\/g, '')})})
+    Axios.post('http://localhost:8080/pocket/scrape', {
+      key: localStorage.getItem('myKey'),
+      url: this.props.location.state.url
+    })
+         .then(result => {this.contentContainer.current.innerHTML = result.data.article.replace(/\\/g,'');
 
-    Axios.get('http://localhost:8080/pocket/fake')
-         .then(result => this.contentContainer.current.innerHTML = result.data.article.replace(/\\/g,''))
+         const text = htmlToText.fromString(result.data.article.replace(/\\/g,''),{
+           ignoreHref: true,
+           ignoreImage: true
+         })
+         
+         this.setState({readingMaterial: text})
+        })
+
+    // Axios.get('http://localhost:8080/pocket/fake')
+    //      .then(result => this.contentContainer.current.innerHTML = result.data.article.replace(/\\/g,''))
 
   }
 
@@ -92,7 +100,7 @@ class Article extends React.Component {
   updateWordSettings() {
     this.setState({
       separatedWords: separateWords(
-        this.readingMaterial,
+        this.state.readingMaterial,
         this.state.wordsPerDisplay
       )
     });
@@ -122,13 +130,15 @@ class Article extends React.Component {
     const count = Number(event.target.value);
     this.setState({
       wordsPerDisplay: count,
-      separatedWords: separateWords(this.readingMaterial, count)
+      separatedWords: separateWords(this.state.readingMaterial, count)
     });
 
     this.resetReading();
   };
 
   speedRead = () => {
+    this.updateWordSettings();
+
     this.setState({
       showContent: !this.state.showContent,
       speedRead: !this.state.speedRead
@@ -139,7 +149,6 @@ class Article extends React.Component {
     return (
       <div className="article">
         <div ref={this.contentContainer} className={this.state.speedRead ? "article__textContainer--grey" : "article__textContainer"}>
-          {this.state.content}
         </div>
         {this.state.speedRead === true ? (
           <div>

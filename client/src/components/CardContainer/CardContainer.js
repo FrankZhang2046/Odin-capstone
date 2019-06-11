@@ -5,12 +5,18 @@ import Axios from 'axios';
 
 export default class CardContainer extends Component{
     state={
-        articles: []
+        articles: [],
+        
     }
 
     componentDidMount(){
-        Axios.post('http://localhost:8080/pocket/get', {token: localStorage.getItem('accessToken')})
+       
+            Axios.post('http://localhost:8080/pocket/get', {token: localStorage.getItem('accessToken')})
              .then(result => this.setState({articles: result.data}))
+    }
+
+    componentDidUpdate(){
+        
     }
 
     render(){
