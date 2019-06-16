@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 5000;
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -21,5 +22,5 @@ app.use('/feedly', feedlyRoutes);
 app.use('/webscrape', webScrapeRoutes);
 app.use('/pocket', pocketRoutes);
 
-app.listen(8080, console.log(`server successfully set up.`));
+app.listen(PORT, console.log(`server successfully set up.`));
 
