@@ -6,13 +6,9 @@
  */
 export default function separateWords(text, wordsPerGroup = 1) {
     const wordsArray = text
-        //force to string
         .toString()
-        //remove line breaks
         .replace(/(\r\n|\n|\r)/gm, " ")
-        //split
         .split(" ")
-        //only strings with length please
         .filter((item)=>item.length > 0);
 
 
