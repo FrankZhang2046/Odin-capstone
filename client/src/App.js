@@ -9,6 +9,7 @@ import './App.scss';
 import Stats from './components/Stats/Stats';
 import FeedlyArticle from './components/FeedlyArticle/FeedlyArticle'
 import FeedlyScraped from './components/FeedlyScraped/FeedlyScraped';
+import LoggedIn from './components/LoggedIn/LoggedIn';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route exact path="/login" render={(props)=><Login {...props} />}/>
+        <Route exact path="/loggedin" render={(props)=><LoggedIn {...props} />}/>
         <Route exact path="/repository" component={Repository}/>
         <Route exact path="/repository/pocket" component={Repository} />
         <Route exact path="/repository/feedly/:id" render={(props) => <Repository {...props} />}/>

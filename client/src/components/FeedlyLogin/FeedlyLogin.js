@@ -9,7 +9,7 @@ export default class FeedlyLogin extends React.Component {
         <img className="feedlyLogin__icon" src={feedlyIcon} alt="feedly-icon" />
         <div className="feedlyLogin__control">
           <p className="feedlyLogin__control--cta">
-            CONNECT YOUR FEEDLY ACCOUNT
+            YOUR FEEDLY ACCOUNT IS ONLINE
           </p>
           <div className="feedlyLogin__control-button">
               <button className="feedlyLogin__control-button-authen">
