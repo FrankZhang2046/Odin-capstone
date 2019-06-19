@@ -2,15 +2,21 @@ import React from 'react';
 import htmlToText from 'html-to-text';
 import './FeedlyArticle.scss';
 import ArticleBottomBar from '../ArticleBottomBar/ArticleBottomBar';
+let text = '';
 
 const FeedlyArticle = (props) => {
     const url = props.location.state.article.alternate[0].href;
 
-    const text = htmlToText.fromString(props.location.state.article.content.content.replace(/\\/g,''),{
-        ignoreHref: true,
-        ignoreImage: true
-      })
+    if(props.location.state.article.content && props.location.state.article.content.content !== undefined){
+        text = htmlToText.fromString(props.location.state.article.content.content.replace(/\\/g,''),{
+            ignoreHref: true,
+            ignoreImage: true
+          })
+    }
+    else text = 'no text content received from the feed, please click on the LONG FORM button to scrape the full article.'
 
+
+    
     return (
         <>
         <div className="feedlyArticle">{text}</div>

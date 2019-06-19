@@ -1,19 +1,28 @@
 import React from 'react';
 import Feeds from '../../components/Feeds/Feeds';
 import RepositoryBottomBar from '../../components/RepositoryBottomBar/RepositoryBottomBar';
-let feedlyCategory = '';
 
-const Repository = (props) => {
-    if(props.match.params.id !== undefined){
-        feedlyCategory = props.match.params.id;
+class Repository extends React.Component{
+
+    state={
+        feedlyCategory: ''
     }
 
-    return (
-        <div className="repository">
-            <Feeds />
-            <RepositoryBottomBar />
-        </div>
-    )
-}
+    componentDidUpdate(){
+        if (this.state.feedlyCategory !== this.props.match.params.id) {
+            this.setState({feedlyCategory: this.props.match.params.id})
+        }
+    }
+
+    render(){
+        return (
+            <div className="repository">
+                <Feeds feedlyCategory={this.state.feedlyCategory}/>
+                <RepositoryBottomBar />
+            </div>
+        )
+
+    }
+};
 
 export default Repository;

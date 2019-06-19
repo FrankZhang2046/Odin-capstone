@@ -16,12 +16,12 @@ class ArticleBottomBar extends React.Component {
                     <img src={spearheadIcon} alt="spearhead-icon"/>
                     <p onClick={this.callSpeedReader} className="articleBottomBar__speed-read">SPEED READ</p>
                     <img src={verticalBar} alt="vertical-bar"/>
+                    
+                    <img className="articleBottomBar__horse" src={horseIcon} alt="horse-icon"/>
                     <Link to={{pathname:'/scraped-reading-area', state:{
                         url: this.props.url
                     }}}>
-                    <img className="articleBottomBar__horse" src={horseIcon} alt="horse-icon"/>
-                    </Link>
-                    <p className="articleBottomBar__long-form">LONG-FORM</p>
+                    <p className="articleBottomBar__long-form">LONG-FORM</p> </Link>
             </div>
         )
     }

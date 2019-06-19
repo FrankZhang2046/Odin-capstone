@@ -2,34 +2,35 @@ import React from "react";
 import "./PocketLogin.scss";
 import axios from "axios";
 import pocketIcon from "../../assets/pocket-icon-large.svg";
+import {Link} from 'react-router-dom';
 
 export default class PocketLogin extends React.Component {
 
-  getArticle = () => {
-    this.props.getAccessToken();
-    const { myKey, token } = this.props;
+  // getArticle = () => {
+  //   this.props.getAccessToken();
+  //   const { myKey, token } = this.props;
 
-    axios({
-      method: "post",
-      url: "http://localhost:8080/pocket/get",
-      data: {
-        token: localStorage.getItem("accessToken")
-      }
-    }).then(result => {
-      if (result.data.length === 0) {
-        alert(`got no articles in db, performing article scraping`);
-        axios
-          .post(`http://localhost:8080/pocket/write`, {
-            key: myKey,
-            token: token
-          })
-          .then(result => console.log(result));
-      } else {
-        alert(`we got your pocket articles`);
-        console.log(result.data);
-      }
-    });
-  };
+  //   axios({
+  //     method: "post",
+  //     url: "http://localhost:8080/pocket/get",
+  //     data: {
+  //       token: localStorage.getItem("accessToken")
+  //     }
+  //   }).then(result => {
+  //     if (result.data.length === 0) {
+  //       alert(`got no articles in db, performing article scraping`);
+  //       axios
+  //         .post(`http://localhost:8080/pocket/write`, {
+  //           key: myKey,
+  //           token: token
+  //         })
+  //         .then(result => console.log(result));
+  //     } else {
+  //       alert(`we got your pocket articles`);
+  //       console.log(result.data);
+  //     }
+  //   });
+  // };
 
   read = () => {};
 
@@ -51,12 +52,14 @@ export default class PocketLogin extends React.Component {
                 AUTHENTICATE
               </button>
             </a>
+            
+            <Link to={'/repository/pocket'}>
             <button
-              onClick={() => this.getArticle()}
               className="pocketLogin__control-button-get-articles"
             >
               FRANK'S ACCOUNT
             </button>
+            </Link>
           </div>
         </div>
       </div>

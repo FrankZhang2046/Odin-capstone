@@ -10,6 +10,6 @@ const BottomBar = (props) => {
             </Link>
         </div>
     )
-}
+};
 
 export default BottomBar;

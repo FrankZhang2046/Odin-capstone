@@ -19,7 +19,7 @@ class Login extends Component {
 
   componentDidMount(){
     localStorage.setItem('myKey', ConsumerKey);
-    this.getRequestToken()
+    this.getRequestToken();
     this.setState({show:true})
   }
 
@@ -42,17 +42,17 @@ class Login extends Component {
       });
   };
 
-  getAccessToken = () => {
-    axios
-      .post(`http://localhost:8080/pocket`, {
-        key: ConsumerKey,
-        token: localStorage.getItem("token")
-      })
-      .then(result => {
-        localStorage.setItem('accessToken',result.data.slice(13));
-        console.log(result.data);
-      });
-  };
+  // getAccessToken = () => {
+  //   axios
+  //     .post(`http://localhost:8080/pocket`, {
+  //       key: ConsumerKey,
+  //       token: localStorage.getItem("token")
+  //     })
+  //     .then(result => {
+  //       localStorage.setItem('accessToken',result.data.slice(13));
+  //       console.log(result.data);
+  //     });
+  // };
 
   render() {
     return (

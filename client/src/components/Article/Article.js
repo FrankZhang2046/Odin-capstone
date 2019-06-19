@@ -186,8 +186,7 @@ class Article extends React.Component {
             />
           </div>
         ) : null}
-        <button onClick={this.speedRead}>Exit Speed Reading Mode</button>
-
+        
         <ArticleBottomBar clickHandler={this.speedRead} />
       </div>
     );
