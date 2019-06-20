@@ -40,18 +40,6 @@ class Login extends Component {
       });
   };
 
-  // getAccessToken = () => {
-  //   axios
-  //     .post(`https://odin-pocket-client.herokuapp.com/pocket`, {
-  //       key: ConsumerKey,
-  //       token: localStorage.getItem("token")
-  //     })
-  //     .then(result => {
-  //       localStorage.setItem('accessToken',result.data.slice(13));
-  //       console.log(result.data);
-  //     });
-  // };
-
   render() {
     return (
       <div className="login">
@@ -61,7 +49,7 @@ class Login extends Component {
           />
           <FeedlyLogin />
           <RepositoryButton />
-
+          {console.log(this.state.baseUrl)}
           <SweetAlert
             show={this.state.show}
             title="Re: your pocket account"
