@@ -23,7 +23,7 @@ class Login extends Component {
 
   getRequestToken = () => {
     axios
-      .post(`http://https://odin-pocket-client.herokuapp.com`, {
+      .post(`https://odin-pocket-client.herokuapp.com`, {
         key: ConsumerKey,
         uri: `odin.frankzhang.dev`
       })
