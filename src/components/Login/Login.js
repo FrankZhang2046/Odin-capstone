@@ -34,7 +34,7 @@ class Login extends Component {
         this.setState({
           token: result.data,
           pocketAuthenticated: true,
-          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=http://odin.frankzhang.dev/loggedin`
+          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=odin.frankzhang.dev/loggedin`
         });
         console.log(localStorage.getItem('token'))
       });
