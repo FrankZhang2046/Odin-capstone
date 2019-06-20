@@ -12,7 +12,7 @@ export default class PocketLogin extends React.Component {
 
   //   axios({
   //     method: "post",
-  //     url: "http://localhost:8080/pocket/get",
+  //     url: "https://odin-pocket-client.herokuapp.com/pocket/get",
   //     data: {
   //       token: localStorage.getItem("accessToken")
   //     }
@@ -20,7 +20,7 @@ export default class PocketLogin extends React.Component {
   //     if (result.data.length === 0) {
   //       alert(`got no articles in db, performing article scraping`);
   //       axios
-  //         .post(`http://localhost:8080/pocket/write`, {
+  //         .post(`https://odin-pocket-client.herokuapp.com/pocket/write`, {
   //           key: myKey,
   //           token: token
   //         })

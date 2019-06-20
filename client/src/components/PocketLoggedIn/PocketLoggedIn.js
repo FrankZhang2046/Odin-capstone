@@ -16,7 +16,7 @@ export default class PocketLoggedIn extends React.Component {
 
     getAccessToken = () => {
         axios
-            .post(`http://localhost:8080/pocket`, {
+            .post(`https://odin-pocket-client.herokuapp.com/pocket`, {
                 key: ConsumerKey,
                 token: localStorage.getItem("token")
             })

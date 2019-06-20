@@ -8,7 +8,7 @@ class Title extends React.Component{
     };
 
     componentDidMount(){
-        // Axios.post(`http://localhost:8080/feedly/entry`, {id: this.props.entryId})
+        // Axios.post(`https://odin-pocket-client.herokuapp.com/feedly/entry`, {id: this.props.entryId})
         //     .then(result => this.setState({article: result.data}))
         this.setState({article: this.props.article})
     }

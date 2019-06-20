@@ -42,7 +42,7 @@ class Article extends React.Component {
 
   componentDidMount() {
 
-    Axios.post('http://localhost:8080/pocket/scrape', {
+    Axios.post('https://odin-pocket-client.herokuapp.com/pocket/scrape', {
       key: localStorage.getItem('myKey'),
       url: this.props.location.state.url
     })
@@ -56,7 +56,7 @@ class Article extends React.Component {
          this.setState({readingMaterial: text})
         })
 
-    // Axios.get('http://localhost:8080/pocket/fake')
+    // Axios.get('https://odin-pocket-client.herokuapp.com/pocket/fake')
     //      .then(result => this.contentContainer.current.innerHTML = result.data.article.replace(/\\/g,''))
 
   }

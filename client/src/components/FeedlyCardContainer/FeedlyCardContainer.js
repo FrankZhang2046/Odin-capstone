@@ -16,7 +16,7 @@ export default class FeedlyCardContainer extends Component {
 
       const feedlyCategory = this.props.feedlyCategory;
 
-      Axios.post("http://localhost:8080/feedly/get", {
+      Axios.post("https://odin-pocket-client.herokuapp.com/feedly/get", {
         category: feedlyCategory
       }).then(result => this.setState({ articles: result.data }));
     }

@@ -18,7 +18,7 @@ export default class Sidebar extends React.Component {
     // }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/feedly/category')
+        axios.get('https://odin-pocket-client.herokuapp.com/feedly/category')
             .then(result => this.setState({categories: result.data}))
     };
 
