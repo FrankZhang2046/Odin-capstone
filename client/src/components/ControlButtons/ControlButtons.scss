@@ -1,8 +1,13 @@
 .button-container{
-    width:55%;
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    bottom: 220px;
-    left: 80px;
+
+    position: absolute;
+    width: 205px;
+    height: 32px;
+    left: -5px;
+    top: 185px;
+    
+
+
 }

@@ -1,9 +1,10 @@
 .feedlyArticle{
     position: absolute;
     width: 414px;
-    height: calc(609px - 80px);
+    height: calc(609px);
     left: 0px;
     top: 77px;
     margin-bottom: 80px;
     z-index: 0;
+    overflow-y:scroll;
 }

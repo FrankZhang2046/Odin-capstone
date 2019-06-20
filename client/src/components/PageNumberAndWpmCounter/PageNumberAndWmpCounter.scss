@@ -1,7 +1,9 @@
 .number-of-pages{
-    position: fixed;
-    bottom: 140px;
-    left: 80px;
+    position: absolute;
+    width: 204px;
+    height: 12px;
+    left: -5px;
+    top: 289px;
 
     font-family: Roboto;
     font-style: normal;
@@ -9,5 +11,5 @@
     font-size: 12px;
     line-height: 14px;
 
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.75);
 }

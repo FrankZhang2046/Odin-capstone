@@ -20,17 +20,21 @@
     color: rgba(255, 255, 255, 0.6);
 
     &__label{
-        position: fixed;
-        bottom: 165px;
-        left: 240px;
+       
+position: absolute;
+width: 127px;
+height: 44px;
+left: 140px;
+top: 242px;
 
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 28px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 28px;
 
-        color: rgba(255, 191, 0, 0.65);
+color:rgba(255, 191, 0, 0.65);
+
     }
 }
 

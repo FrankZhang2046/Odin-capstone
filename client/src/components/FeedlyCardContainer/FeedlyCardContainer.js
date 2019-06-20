@@ -28,6 +28,9 @@ export default class FeedlyCardContainer extends Component {
         {/* {this.state.articles.map(article => {
                     return <Card article={article}/>
                 })} */}
+        
+        {this.state.articles.length === 0 ? <p style={{marginLeft: '10px'}}>Please click on any one of the categories from the sidebar to load articles belonging to that category.</p> : null} 
+
         {this.state.articles.map(article => {
           return <FeedlyCard article={article} />;
         })}
