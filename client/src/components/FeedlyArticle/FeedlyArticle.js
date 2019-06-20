@@ -1,13 +1,13 @@
 import React from 'react';
 import htmlToText from 'html-to-text';
 import './FeedlyArticle.scss';
-import ArticleBottomBar from '../ArticleBottomBar/ArticleBottomBar';
+import FeedlyArticleBottomBar from '../FeedlyArticleBottomBar/FeedlyArticleBottomBar';
 let text = '';
 
 const FeedlyArticle = (props) => {
     const url = props.location.state.article.alternate[0].href;
 
-    if(props.location.state.article.content && props.location.state.article.content.content !== undefined){
+    if(props.location.state.article.content.content && props.location.state.article.content.content !== undefined){
         text = htmlToText.fromString(props.location.state.article.content.content.replace(/\\/g,''),{
             ignoreHref: true,
             ignoreImage: true
@@ -20,7 +20,7 @@ const FeedlyArticle = (props) => {
     return (
         <>
         <div className="feedlyArticle">{text}</div>
-        <ArticleBottomBar url={url}/>
+        <FeedlyArticleBottomBar url={url}/>
         </>
     )
 }

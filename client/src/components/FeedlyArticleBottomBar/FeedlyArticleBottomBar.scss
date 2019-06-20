@@ -1,4 +1,4 @@
-.articleBottomBar{
+.FeedlyArticleBottomBar{
 
         position: absolute;
         width: 414px;
@@ -17,19 +17,11 @@
             font-family: 'roboto';
             margin-bottom: 15px;
             color: #FFBF00;
-
-            &:hover{
-                    cursor:pointer;
-            }
     }
     &__long-form{
             font-family: 'roboto';
             margin-bottom: 15px;
             color: #FFBF00;
-
-            &:hover{
-                cursor:pointer;
-        }
     }
 
     &__horse{

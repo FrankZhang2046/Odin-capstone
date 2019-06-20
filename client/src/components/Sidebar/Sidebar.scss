@@ -23,6 +23,11 @@ a{
         line-height: 11px;
 
         color: rgba(255,255,255,0.75);
+
+        &:hover{
+            color:black;
+            background: rgba(255, 191, 0, 0.65);
+        }
     }
 }
 
