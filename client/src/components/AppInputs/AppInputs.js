@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 import './AppInputs.scss'
 
 
@@ -16,23 +15,9 @@ const AppInputs = ({playing, handleChangeWPM, wordsPerDisplay, handleChangeWords
         </div>
         <div className="app-inputs__group">
 
-            {/* <label htmlFor="words-per-display-input">
-                <input type="range" min="1" max="10" className="hide" id="words-per-display-input"
-                       value={wordsPerDisplay}
-                       disabled={playing}
-                       onChange={handleChangeWordsPerDisplay}/>
-            </label> */}
         </div>
     </div>
 
-}
-
-AppInputs.propTypes = {
-    playing: PropTypes.bool.isRequired,
-    wpm: PropTypes.number.isRequired,
-    wordsPerDisplay: PropTypes.number.isRequired,
-    handleChangeWordsPerDisplay: PropTypes.func.isRequired,
-    handleChangeWPM: PropTypes.func.isRequired,
 }
 
 
