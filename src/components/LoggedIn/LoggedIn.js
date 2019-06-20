@@ -8,8 +8,6 @@ import './LoggedIn.scss';
 import PocketLoggedIn from "../PocketLoggedIn/PocketLoggedIn";
 import ConsumerKey from "../../data/consumerKey";
 
-const domainName = window.location.href;
-
 class LoggedIn extends Component {
     state = {
         token: "",

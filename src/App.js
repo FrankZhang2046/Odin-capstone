@@ -18,7 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Welcome} />
         <Route exact path="/login" render={(props)=><Login {...props} />}/>
-        <Route exact path="/loggedin" render={(props)=><LoggedIn {...props} />}/>
+        <Route exact path="/success" render={(props)=><LoggedIn {...props} />}/>
         <Route exact path="/repository/pocket" component={Repository} />
         <Route exact path="/repository/feedly" component={Repository} />
         <Route exact path="/repository/feedly/:id" render={(props) => <Repository {...props} />}/>

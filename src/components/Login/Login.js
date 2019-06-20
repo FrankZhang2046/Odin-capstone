@@ -25,7 +25,7 @@ class Login extends Component {
     axios
       .post(`https://odin-pocket-client.herokuapp.com`, {
         key: ConsumerKey,
-        uri: `odin.frankzhang.dev`
+        uri: `https://odin.frankzhang.dev`
       })
       .then(result => {
         const token = result.data;
@@ -34,7 +34,7 @@ class Login extends Component {
         this.setState({
           token: result.data,
           pocketAuthenticated: true,
-          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=https://odin.frankzhang.dev/loggedin`
+          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=https://odin.frankzhang.dev/success`
         });
         console.log(localStorage.getItem('token'))
       });
