@@ -8,8 +8,6 @@ import RepositoryButton from "../RepositoryButton/RepositoryButton";
 import './Login.scss';
 import SweetAlert from 'sweetalert2-react';
 
-const domainName = window.location.href;
-
 class Login extends Component {
   state = {
     token: "",
@@ -25,9 +23,9 @@ class Login extends Component {
 
   getRequestToken = () => {
     axios
-      .post(`http://localhost:8080`, {
+      .post(`http://https://odin-pocket-client.herokuapp.com`, {
         key: ConsumerKey,
-        uri: `${domainName}`
+        uri: `odin.frankzhang.dev`
       })
       .then(result => {
         const token = result.data;
@@ -36,7 +34,7 @@ class Login extends Component {
         this.setState({
           token: result.data,
           pocketAuthenticated: true,
-          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=http://localhost:3000/loggedin`
+          baseUrl: `https://getpocket.com/auth/authorize?request_token=${cleanToken}&redirect_uri=http://odin.frankzhang.dev/loggedin`
         });
         console.log(localStorage.getItem('token'))
       });
